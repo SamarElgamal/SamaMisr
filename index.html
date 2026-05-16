@@ -612,10 +612,11 @@ footer::before{content:'';position:absolute;inset:0;background-image:linear-grad
           <iframe title="Cairo Map" src="https://www.openstreetmap.org/export/embed.html?bbox=31.20%2C30.02%2C31.30%2C30.08&layer=mapnik" loading="lazy"></iframe>
         </div>
       </div>
-      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+     <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
   <input type="hidden" name="access_key" value="efdc677d-a3ab-4bff-af45-809dc70faed6"/>
   <input type="hidden" name="subject" value="New Enquiry — Sama Misr"/>
   <input type="hidden" name="redirect" value="false"/>
+  <input type="hidden" name="after_submit" value="reset"/>
   <div class="form-grid-2">
     <div class="fg"><label id="X-fn">Full Name</label><input type="text" name="name" placeholder="Ahmed Hassan" required/></div>
     <div class="fg"><label id="X-co">Company</label><input type="text" name="company" placeholder="Your company"/></div>
@@ -846,6 +847,11 @@ function sL(l){
   document.getElementById('lang-popup').classList.remove('open')
   const d=D[l]
   for(const[k,v]of Object.entries(d)){const e=document.getElementById(k);if(e)e.innerHTML=v}
+}
+</script>
+  <script>
+if(window.history.replaceState){
+  window.history.replaceState(null, null, window.location.href);
 }
 </script>
 </body>
