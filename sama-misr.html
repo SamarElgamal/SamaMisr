@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sama Misr — Industrial Chemicals & Specialty Solutions</title>
+<meta name="description" content="Sama Misr supplies high-quality industrial raw materials and specialty chemicals for ceramics, glass, detergents, and sanitary ware manufacturing."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy-deep:#182748;
+  --navy:#253b6e;
+  --brand:#324f94;
+  --brand-bright:#3f64ba;
+  --white:#ffffff;
+  --mist:#f0f2f7;
+  --muted:#8a96b0;
+  --border:rgba(24,39,72,0.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:#fff;color:var(--navy-deep);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+body.ar{direction:rtl}
+body.ar .nav-links{flex-direction:row-reverse}
+body.ar .nav-right{flex-direction:row-reverse}
+body.ar .hero-meta{direction:rtl}
+body.ar .about-grid{direction:rtl}
+body.ar .pillars{direction:rtl}
+body.ar .ind-grid{direction:rtl}
+body.ar .sol-grid{direction:rtl}
+body.ar .why-grid{direction:rtl}
+body.ar .stats-grid{direction:rtl}
+body.ar .contact-grid{direction:rtl}
+body.ar .footer-cols{direction:rtl}
+body.ar .footer-bottom{flex-direction:row-reverse}
+body.ar .pillar .pillar-line{margin-left:0;margin-right:0}
+body.ar .lang-popup{right:auto;left:0}
+body.ar .sol-item ul li span{margin-left:0;margin-right:1rem}
+
+/* UTILITIES */
+.gradient-brand{background:linear-gradient(135deg,#182748 0%,#253b6e 45%,#324f94 100%)}
+.gradient-text{background:linear-gradient(135deg,#fff 0%,rgba(123,158,232,1) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:rgba(255,255,255,0.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.12)}
+
+@keyframes pulseGlow{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.85;transform:scale(1.08)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:80px;display:flex;align-items:center;transition:all .5s}
+nav.scrolled{background:rgba(24,39,72,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.1)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 2.5rem;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.nav-logo img{width:44px;height:44px;object-fit:contain;filter:brightness(0) invert(1)}
+.nav-logo-text{font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:-.02em}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.75);text-decoration:none;position:relative;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;bottom:-6px;left:0;height:1px;width:0;background:var(--brand-bright);transition:width .3s}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.globe-wrap{position:relative}
+.globe-btn{background:transparent;border:1px solid rgba(255,255,255,.2);width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.globe-btn:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.08)}
+.globe-btn svg{width:16px;height:16px;stroke:rgba(255,255,255,.7);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.lang-popup{position:absolute;top:calc(100% + 8px);right:0;background:#1a2d50;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:.4rem;display:none;flex-direction:column;gap:.15rem;min-width:115px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.lang-popup.open{display:flex}
+.lang-opt{background:transparent;border:none;font-family:'Manrope',sans-serif;font-size:.82rem;padding:.4rem .8rem;border-radius:6px;cursor:pointer;text-align:left;color:rgba(255,255,255,.7);transition:background .15s}
+.lang-opt:hover{background:rgba(255,255,255,.08)}
+.lang-opt.active{background:rgba(63,100,186,.25);color:#a8c0f0;font-weight:600}
+.nav-cta{display:inline-flex;align-items:center;gap:.4rem;background:var(--brand-bright);color:#fff;padding:.55rem 1.25rem;border-radius:99px;font-family:'Manrope',sans-serif;font-size:.875rem;font-weight:600;text-decoration:none;transition:all .3s;box-shadow:0 8px 30px -8px rgba(63,100,186,.6);white-space:nowrap}
+.nav-cta:hover{background:var(--brand)}
+.mob-menu-btn{display:none;background:transparent;border:none;cursor:pointer;padding:.5rem}
+.mob-menu-btn span{display:block;width:24px;height:1px;background:#fff;margin:5px 0;transition:all .3s}
+.mob-menu{display:none;background:rgba(24,39,72,.97);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.1);padding:1.5rem 2rem}
+.mob-menu a{display:block;color:rgba(255,255,255,.8);text-decoration:none;padding:.75rem 0;font-size:1rem}
+.mob-cta{display:inline-flex;justify-content:center;background:var(--brand-bright);color:#fff;padding:.75rem 2rem;border-radius:99px;font-size:.875rem;font-weight:600;text-decoration:none;margin-top:.75rem;width:100%;text-align:center}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#182748 0%,#253b6e 45%,#324f94 100%)}
+.hero-img{position:absolute;inset:0;background:url('hero-molecules.jpg') center/cover no-repeat;opacity:.55;mix-blend-mode:screen}
+.hero-fade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(24,39,72,.7) 0%,rgba(24,39,72,.4) 50%,rgba(24,39,72,1) 100%)}
+.hero-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;opacity:.5}
+.hero-orb1{position:absolute;top:-160px;right:-160px;width:600px;height:600px;border-radius:50%;background:rgba(63,100,186,.3);filter:blur(140px);animation:pulseGlow 4s ease-in-out infinite}
+.hero-orb2{position:absolute;bottom:-160px;left:-160px;width:500px;height:500px;border-radius:50%;background:rgba(50,79,148,.4);filter:blur(160px);animation:pulseGlow 4s ease-in-out infinite;animation-delay:2s}
+.hero-content{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:8rem 2.5rem 6rem;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.07);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:99px;padding:.35rem 1rem;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:2rem;animation:fadeUp .6s ease .1s both}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--brand-bright);animation:pulseGlow 2s infinite}
+.hero h1{font-size:clamp(2.5rem,6vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;max-width:860px;margin-bottom:2rem;animation:fadeUp .7s ease .2s both}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,.7);max-width:600px;line-height:1.75;margin-bottom:2.5rem;animation:fadeUp .7s ease .35s both;font-weight:400}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:5rem;animation:fadeUp .7s ease .5s both}
+.btn-hero-primary{display:inline-flex;align-items:center;gap:.75rem;background:#fff;color:var(--navy-deep);padding:1rem 1.75rem;border-radius:99px;font-size:.875rem;font-weight:700;text-decoration:none;transition:all .3s}
+.btn-hero-primary:hover{background:var(--brand-bright);color:#fff}
+.btn-hero-primary .arrow{transition:transform .2s}
+.btn-hero-primary:hover .arrow{transform:translateX(3px)}
+.btn-hero-ghost{display:inline-flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.07);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);color:#fff;padding:1rem 1.75rem;border-radius:99px;font-size:.875rem;font-weight:600;text-decoration:none;transition:all .3s}
+.btn-hero-ghost:hover{background:rgba(255,255,255,.15)}
+.hero-meta{display:grid;grid-template-columns:repeat(4,auto);gap:0;max-width:600px;animation:fadeUp .7s ease .65s both}
+.hero-stat{border-left:1px solid rgba(255,255,255,.15);padding-left:1.25rem}
+.hero-stat:first-child{border-left:none;padding-left:0}
+.hero-stat-val{font-size:1.5rem;font-weight:700;color:#fff;line-height:1}
+.hero-stat-lbl{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.5);margin-top:.25rem}
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(255,255,255,.5);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.6),transparent)}
+
+/* ── ABOUT ── */
+.about{padding:8rem 2.5rem;background:#fff}
+.about-inner{max-width:1280px;margin:0 auto}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.about-img-wrap{position:relative}
+.about-glow{position:absolute;inset:-24px;border-radius:24px;background:linear-gradient(135deg,rgba(63,100,186,.15),transparent);filter:blur(32px)}
+.about-img-frame{position:relative;border-radius:20px;overflow:hidden;ring:1px solid rgba(24,39,72,.1)}
+.about-img-frame img{width:100%;height:520px;object-fit:cover;display:block}
+.about-img-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(24,39,72,.4),transparent)}
+.about-spec-card{position:absolute;bottom:-32px;right:-32px;background:#fff;border-radius:20px;padding:1.5rem 2rem;box-shadow:0 30px 80px -30px rgba(24,39,72,.35);border:1px solid rgba(24,39,72,.08)}
+.about-spec-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--brand-bright);font-weight:700;margin-bottom:.35rem}
+.about-spec-val{font-size:2rem;font-weight:700;color:var(--navy-deep);line-height:1;letter-spacing:-.02em}
+.about-spec-sub{font-size:.82rem;color:var(--muted);margin-top:.3rem}
+.sec-label{font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--brand);margin-bottom:1.25rem}
+.sec-h2{font-size:clamp(1.75rem,3.5vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:1.5rem}
+.about-text{font-size:1rem;color:var(--muted);line-height:1.85;margin-bottom:1rem;font-weight:400}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 2rem;margin-top:2.5rem}
+.pillar{}
+.pillar-head{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+.pillar-line{width:24px;height:2px;background:var(--brand-bright);border-radius:2px;transition:width .3s;flex-shrink:0}
+.pillar:hover .pillar-line{width:40px}
+.pillar-title{font-size:.95rem;font-weight:700;color:var(--navy-deep)}
+.pillar-desc{font-size:.83rem;color:var(--muted);line-height:1.75;padding-left:calc(24px + .75rem)}
+
+/* ── INDUSTRIES ── */
+.industries{padding:8rem 2.5rem;background:var(--mist);position:relative;overflow:hidden}
+.industries::before{content:'';position:absolute;inset:0;background-image:linear-gradient(to right,rgba(24,39,72,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(24,39,72,.06) 1px,transparent 1px);background-size:56px 56px;opacity:.6}
+.industries-inner{max-width:1280px;margin:0 auto;position:relative}
+.ind-header{max-width:640px;margin-bottom:4rem}
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.ind-card{background:#fff;border-radius:20px;padding:2rem;box-shadow:0 2px 12px rgba(24,39,72,.06);border:1px solid transparent;transition:all .4s;position:relative;overflow:hidden}
+.ind-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(63,100,186,.05),transparent);opacity:0;transition:opacity .4s}
+.ind-card:hover{border-color:rgba(63,100,186,.3);transform:translateY(-4px);box-shadow:0 16px 48px rgba(24,39,72,.12)}
+.ind-card:hover::before{opacity:1}
+.ind-icon{width:56px;height:56px;background:var(--navy-deep);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;transition:background .4s}
+.ind-card:hover .ind-icon{background:var(--brand-bright)}
+.ind-icon svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round}
+.ind-name{font-size:1.2rem;font-weight:700;color:var(--navy-deep);margin-bottom:.5rem}
+.ind-desc{font-size:.84rem;color:var(--muted);line-height:1.75}
+.ind-learn{display:flex;align-items:center;gap:.4rem;font-size:.83rem;font-weight:600;color:var(--brand);margin-top:1.5rem;opacity:0;transform:translateX(-8px);transition:all .4s}
+.ind-card:hover .ind-learn{opacity:1;transform:translateX(0)}
+
+/* ── SOLUTIONS ── */
+.solutions{padding:8rem 2.5rem;background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+.solutions::before{content:'';position:absolute;inset:0;background-image:linear-gradient(to right,rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;opacity:.4}
+.solutions::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:rgba(50,79,148,.2);filter:blur(180px);pointer-events:none}
+.solutions-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
+.sol-header{display:flex;align-items:flex-end;justify-content:space-between;gap:4rem;margin-bottom:4rem;flex-wrap:wrap}
+.sol-header-left{max-width:600px}
+.sol-header-right{max-width:380px;color:rgba(255,255,255,.65);font-size:.95rem;line-height:1.75}
+.sol-header .sec-label{color:var(--brand-bright)}
+.sol-header .sec-h2{color:#fff;margin-bottom:0}
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.sol-card{background:var(--navy-deep);padding:2.5rem;transition:background .4s}
+.sol-card:hover{background:var(--navy)}
+.sol-card-inner{display:flex;align-items:flex-start;gap:1.5rem}
+.sol-icon{width:48px;height:48px;flex-shrink:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;transition:all .4s}
+.sol-card:hover .sol-icon{background:var(--brand-bright);border-color:var(--brand-bright)}
+.sol-icon svg{width:22px;height:22px;stroke:var(--brand-bright);fill:none;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.sol-card:hover .sol-icon svg{stroke:#fff}
+.sol-body{}
+.sol-title{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.75rem}
+.sol-desc{font-size:.875rem;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:1.5rem}
+.sol-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.sol-list li{display:flex;align-items:center;gap:.75rem;font-size:.84rem;color:rgba(255,255,255,.75)}
+.sol-list li::before{content:'';display:inline-block;width:16px;height:1.5px;background:var(--brand-bright);flex-shrink:0}
+
+/* ── WHY ── */
+.why{padding:8rem 2.5rem;background:#fff}
+.why-inner{max-width:1280px;margin:0 auto}
+.why-header{max-width:720px;margin-bottom:4rem}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem 4rem}
+.why-card{}
+.why-icon{margin-bottom:1.25rem}
+.why-icon svg{width:32px;height:32px;stroke:var(--brand-bright);fill:none;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s}
+.why-card:hover .why-icon svg{transform:scale(1.1)}
+.why-divider{width:48px;height:1.5px;background:rgba(24,39,72,.15);border-radius:2px;margin-bottom:1.25rem;transition:all .4s}
+.why-card:hover .why-divider{width:80px;background:var(--brand-bright)}
+.why-title{font-size:1.2rem;font-weight:700;color:var(--navy-deep);margin-bottom:.6rem}
+.why-desc{font-size:.875rem;color:var(--muted);line-height:1.8}
+
+/* ── STATS ── */
+.stats{padding:7rem 2.5rem;position:relative;overflow:hidden;background:linear-gradient(135deg,#182748 0%,#253b6e 45%,#324f94 100%)}
+.stats::before{content:'';position:absolute;inset:0;background-image:linear-gradient(to right,rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;opacity:.3}
+.stats::after{content:'';position:absolute;top:-50%;right:25%;width:500px;height:500px;border-radius:50%;background:rgba(63,100,186,.3);filter:blur(140px)}
+.stats-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.stat-item{text-align:left}
+.stat-val{font-size:clamp(3rem,6vw,5rem);font-weight:700;letter-spacing:-.02em;line-height:1}
+.stat-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.65);margin-top:.75rem}
+
+/* ── CONTACT ── */
+.contact{padding:8rem 2.5rem;background:var(--mist);position:relative;overflow:hidden}
+.contact-inner{max-width:1280px;margin:0 auto}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
+.contact-label{font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--brand);margin-bottom:1.25rem}
+.contact h2{font-size:clamp(2rem,4vw,3.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;color:var(--navy-deep);margin-bottom:1.25rem}
+.contact-sub{font-size:1rem;color:var(--muted);line-height:1.8;max-width:400px;margin-bottom:2.5rem}
+.contact-items{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2.5rem}
+.ci{display:flex;align-items:flex-start;gap:1rem}
+.ci-icon-wrap{width:44px;height:44px;background:#fff;border:1px solid rgba(24,39,72,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s}
+.ci:hover .ci-icon-wrap{background:var(--brand-bright);border-color:var(--brand-bright)}
+.ci-icon-wrap svg{width:18px;height:18px;stroke:var(--brand-bright);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.ci:hover .ci-icon-wrap svg{stroke:#fff}
+.ci-lbl{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.2rem}
+.ci-val{font-size:.95rem;font-weight:600;color:var(--navy-deep)}
+.wa-btn{display:inline-flex;align-items:center;gap:.75rem;background:var(--navy-deep);color:#fff;padding:.875rem 1.75rem;border-radius:99px;font-size:.875rem;font-weight:700;text-decoration:none;transition:all .3s}
+.wa-btn:hover{background:var(--brand-bright)}
+.wa-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+/* form */
+.contact-form{background:#fff;border-radius:24px;padding:2.5rem;box-shadow:0 30px 80px -40px rgba(24,39,72,.25);border:1px solid rgba(24,39,72,.06)}
+.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.fg{margin-bottom:1.25rem}
+.fg label{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.5rem;font-weight:600}
+.fg input,.fg select,.fg textarea{width:100%;background:transparent;border:none;border-bottom:1.5px solid rgba(24,39,72,.15);padding:.6rem 0;font-family:'Manrope',sans-serif;font-size:.95rem;color:var(--navy-deep);outline:none;transition:border-color .2s;resize:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--brand-bright)}
+.fg input::placeholder,.fg textarea::placeholder{color:#c0c8d8}
+.fg select{appearance:none;cursor:pointer}
+.form-submit{width:100%;display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--navy-deep);color:#fff;border:none;border-radius:99px;padding:1rem 2rem;font-family:'Manrope',sans-serif;font-size:.875rem;font-weight:700;cursor:pointer;transition:all .3s;margin-top:.5rem}
+.form-submit:hover{background:var(--brand-bright)}
+.form-submit svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.map-wrap{margin-top:2rem;border-radius:20px;overflow:hidden;border:1px solid rgba(24,39,72,.1);height:220px}
+.map-wrap iframe{width:100%;height:100%;filter:grayscale(40%) contrast(95%)}
+
+/* ── FOOTER ── */
+footer{background:var(--navy-deep);color:#fff;padding:5rem 2.5rem 2.5rem;position:relative;overflow:hidden}
+footer::before{content:'';position:absolute;inset:0;background-image:linear-gradient(to right,rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;opacity:.2}
+.footer-inner{max-width:1280px;margin:0 auto;position:relative}
+.footer-cols{display:grid;grid-template-columns:5fr 2fr 2fr 3fr;gap:3rem;margin-bottom:4rem}
+.footer-brand img{width:52px;height:52px;object-fit:contain;filter:brightness(0) invert(1);margin-bottom:1rem}
+.footer-name{font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:1.5rem}
+.footer-desc{font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.85;max-width:280px;margin-bottom:1.75rem}
+.footer-soc{display:flex;gap:.6rem}
+.footer-soc a{width:40px;height:40px;border:1px solid rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s}
+.footer-soc a:hover{background:var(--brand-bright);border-color:var(--brand-bright)}
+.footer-soc svg{width:16px;height:16px;stroke:rgba(255,255,255,.6);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.footer-col-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.45);margin-bottom:1.25rem;font-weight:600}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+.footer-col ul li a,.footer-col ul li{font-size:.875rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;cursor:default}
+.footer-col ul li a:hover{color:var(--brand-bright)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.75rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,.4)}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a{font-size:.8rem;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:rgba(255,255,255,.75)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
+  .ind-grid{grid-template-columns:repeat(2,1fr)}
+  .sol-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:3rem}
+  .footer-cols{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .sol-header{flex-direction:column;gap:1.5rem}
+  .about-spec-card{right:0}
+}
+@media(max-width:768px){
+  nav{height:68px}
+  .nav-links,.nav-right .globe-wrap,.nav-right .nav-cta{display:none}
+  .mob-menu-btn{display:block}
+  .hero-meta{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+  .hero-stat{border-left:none;padding-left:0}
+  .ind-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .form-grid-2{grid-template-columns:1fr}
+  .footer-cols{grid-template-columns:1fr}
+  .about,.industries,.solutions,.why,.stats,.contact{padding:5rem 1.5rem}
+  footer{padding:4rem 1.5rem 2rem}
+  .hero-content{padding:6rem 1.5rem 4rem}
+  .nav-inner{padding:0 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Sama Misr">
+      <img src="molecule-icon.png" alt="Sama Misr logo"/>
+      <span class="nav-logo-text" id="X-ln">Sama Misr</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about" id="X-na">About</a></li>
+      <li><a href="#industries" id="X-ni">Industries</a></li>
+      <li><a href="#solutions" id="X-ns">Solutions</a></li>
+      <li><a href="#why" id="X-nw">Why Us</a></li>
+      <li><a href="#contact" id="X-nct">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="globe-wrap">
+        <button class="globe-btn" id="globe-btn" onclick="toggleLang()" aria-label="Language">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </button>
+        <div class="lang-popup" id="lang-popup">
+          <button class="lang-opt active" id="opt-en" onclick="sL('en')">🇬🇧 English</button>
+          <button class="lang-opt" id="opt-ar" onclick="sL('ar')">🇪🇬 العربية</button>
+        </div>
+      </div>
+      <a href="#contact" class="nav-cta" id="X-nc">Request a Quote <span>→</span></a>
+    </div>
+    <button class="mob-menu-btn" onclick="toggleMob()" aria-label="Menu">
+      <span id="mb1"></span><span id="mb2"></span><span id="mb3"></span>
+    </button>
+  </div>
+  <div class="mob-menu" id="mob-menu">
+    <a href="#about" onclick="closeMob()" id="X-mna">About</a>
+    <a href="#industries" onclick="closeMob()" id="X-mni">Industries</a>
+    <a href="#solutions" onclick="closeMob()" id="X-mns">Solutions</a>
+    <a href="#why" onclick="closeMob()" id="X-mnw">Why Us</a>
+    <a href="#contact" onclick="closeMob()" id="X-mnct">Contact</a>
+    <a href="#contact" class="mob-cta" onclick="closeMob()" id="X-mnc">Request a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-img"></div>
+  <div class="hero-fade"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      <span id="X-hbadge">Industrial Chemical Solutions</span>
+    </div>
+    <h1 class="gradient-text" id="X-h1">Powering Modern Manufacturing Through Trusted Chemical Solutions</h1>
+    <p class="hero-sub" id="X-hsub">Sama Misr supplies high-quality industrial raw materials and specialty chemicals tailored for ceramics, glass, detergents, and sanitary ware industries.</p>
+    <div class="hero-btns">
+      <a href="#solutions" class="btn-hero-primary">
+        <span id="X-hc1">Explore Solutions</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#contact" class="btn-hero-ghost" id="X-hc2">Contact Us</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-stat"><div class="hero-stat-val">ISO</div><div class="hero-stat-lbl" id="X-hs1">Quality Standards</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">5+</div><div class="hero-stat-lbl" id="X-hs2">Industries Served</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">MENA</div><div class="hero-stat-lbl" id="X-hs3">Supply Network</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">24/7</div><div class="hero-stat-lbl" id="X-hs4">Technical Support</div></div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="scroll-line"></span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="about-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-glow"></div>
+        <div class="about-img-frame">
+          <img src="about-facility.jpg" alt="Industrial laboratory facility" loading="lazy"/>
+          <div class="about-img-grad"></div>
+        </div>
+        <div class="about-spec-card">
+          <div class="about-spec-label" id="X-asl">Established Trust</div>
+          <div class="about-spec-val" id="X-asv">Decades</div>
+          <div class="about-spec-sub" id="X-ass">of supplying critical industrial inputs across MENA.</div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-label" id="X-abt">About Sama Misr</div>
+        <h2 class="sec-h2" id="X-abh">Engineered partnerships for the <span style="color:var(--brand-bright)">industries that build the world.</span></h2>
+        <p class="about-text" id="X-ab1">Sama Misr is an industrial chemicals partner connecting global manufacturers of raw materials with the factories that depend on them. We operate where engineering precision meets dependable sourcing — supporting our clients with consistent quality, transparent relationships, and long-term trust.</p>
+        <p class="about-text" id="X-ab2">We specialise in identifying, qualifying, and sourcing chemical raw materials that meet the exacting standards of ceramics, tiles, sanitaryware, detergent, and glass manufacturers across Egypt.</p>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-head"><span class="pillar-line"></span><span class="pillar-title" id="X-p1t">Reliability</span></div>
+            <p class="pillar-desc" id="X-p1d">Consistent sourcing backed by long-standing partnerships with certified global producers.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-head"><span class="pillar-line"></span><span class="pillar-title" id="X-p2t">Technical Expertise</span></div>
+            <p class="pillar-desc" id="X-p2d">Engineering knowledge across formulations, processes, and end-use industry requirements.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-head"><span class="pillar-line"></span><span class="pillar-title" id="X-p3t">Quality Assurance</span></div>
+            <p class="pillar-desc" id="X-p3d">Rigorous QC at every stage — from sourcing to delivery, aligned with global standards.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-head"><span class="pillar-line"></span><span class="pillar-title" id="X-p4t">Local Understanding</span></div>
+            <p class="pillar-desc" id="X-p4d">Deep knowledge of MENA manufacturing, paired with international sourcing reach.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries" class="industries">
+  <div class="industries-inner">
+    <div class="ind-header">
+      <div class="sec-label" id="X-it">Industries Served</div>
+      <h2 class="sec-h2" id="X-ih">Built for the manufacturers shaping modern industry.</h2>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.8" id="X-isub">From foundational raw materials to high-performance specialty chemistry — tailored for five core verticals.</p>
+    </div>
+    <div class="ind-grid">
+      <div class="ind-card">
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></div>
+        <div class="ind-name" id="X-i1n">Ceramics</div>
+        <div class="ind-desc" id="X-i1d">Raw materials and additives for tiles, tableware, and technical ceramics.</div>
+        <div class="ind-learn" id="X-i1l">Learn more <span>→</span></div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+        <div class="ind-name" id="X-i2n">Textiles</div>
+        <div class="ind-desc" id="X-i2d">Specialty chemicals for dyeing, finishing, and fiber processing.</div>
+        <div class="ind-learn" id="X-i2l">Learn more <span>→</span></div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <div class="ind-name" id="X-i3n">Glass</div>
+        <div class="ind-desc" id="X-i3d">High-purity inputs for flat, container, and specialty glass production.</div>
+        <div class="ind-learn" id="X-i3l">Learn more <span>→</span></div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+        <div class="ind-name" id="X-i4n">Detergents</div>
+        <div class="ind-desc" id="X-i4d">Active ingredients and builders for household and industrial cleaners.</div>
+        <div class="ind-learn" id="X-i4l">Learn more <span>→</span></div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M7 20h10M6 16l6-12 6 12M9 12h6"/></svg></div>
+        <div class="ind-name" id="X-i5n">Sanitary Ware</div>
+        <div class="ind-desc" id="X-i5d">Glaze components and process chemicals for sanitary ware manufacturing.</div>
+        <div class="ind-learn" id="X-i5l">Learn more <span>→</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions" class="solutions">
+  <div class="solutions-inner">
+    <div class="sol-header">
+      <div class="sol-header-left">
+        <div class="sec-label" id="X-svl">Solutions & Products</div>
+        <h2 class="sec-h2" id="X-svh">A complete portfolio for industrial-scale manufacturing.</h2>
+      </div>
+      <p class="sol-header-right" id="X-svb">We combine deep technical knowledge with global sourcing to deliver the right chemistry, on time, at scale.</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-card">
+        <div class="sol-card-inner">
+          <div class="sol-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg></div>
+          <div class="sol-body">
+            <div class="sol-title" id="X-sv1t">Industrial Raw Materials</div>
+            <div class="sol-desc" id="X-sv1d">Bulk inorganic and organic raw materials sourced from accredited global producers.</div>
+            <ul class="sol-list">
+              <li id="X-sv1l1">Mineral feedstocks</li>
+              <li id="X-sv1l2">Solvents & acids</li>
+              <li id="X-sv1l3">Polymer precursors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-inner">
+          <div class="sol-icon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+          <div class="sol-body">
+            <div class="sol-title" id="X-sv2t">Specialty Chemicals</div>
+            <div class="sol-desc" id="X-sv2d">High-performance formulations engineered for demanding industrial processes.</div>
+            <ul class="sol-list">
+              <li id="X-sv2l1">Surfactants</li>
+              <li id="X-sv2l2">Pigments & dispersions</li>
+              <li id="X-sv2l3">Functional additives</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-inner">
+          <div class="sol-icon"><svg viewBox="0 0 24 24"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div>
+          <div class="sol-body">
+            <div class="sol-title" id="X-sv3t">Manufacturing Additives</div>
+            <div class="sol-desc" id="X-sv3d">Process aids that improve yield, consistency, and end-product quality.</div>
+            <ul class="sol-list">
+              <li id="X-sv3l1">Binders & plasticizers</li>
+              <li id="X-sv3l2">Defoamers</li>
+              <li id="X-sv3l3">Performance modifiers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-inner">
+          <div class="sol-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div class="sol-body">
+            <div class="sol-title" id="X-sv4t">Bespoke Sourcing</div>
+            <div class="sol-desc" id="X-sv4d">Can't find what you need? Share your spec and we'll identify the right global supplier.</div>
+            <ul class="sol-list">
+              <li id="X-sv4l1">Supplier qualification</li>
+              <li id="X-sv4l2">Custom grades & specs</li>
+              <li id="X-sv4l3">Technical data review</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="why">
+  <div class="why-inner">
+    <div class="why-header">
+      <div class="sec-label" id="X-wyl">Why Sama Misr</div>
+      <h2 class="sec-h2" id="X-wyh">Six reasons leading manufacturers choose us.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="why-divider"></div>
+        <div class="why-title" id="X-w1t">Reliable Sourcing</div>
+        <div class="why-desc" id="X-w1d">Vetted global partners and transparent supply chains — you always know where your materials come from.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="why-divider"></div>
+        <div class="why-title" id="X-w2t">Consistent Quality</div>
+        <div class="why-desc" id="X-w2d">Specification-grade products, batch after batch — every order verified against its certificate of analysis.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+        <div class="why-divider"></div>
+        <div class="why-title" id="X-w3t">Technical Support</div>
+        <div class="why-desc" id="X-w3d">Expert guidance on formulations, grades, and specifications — we understand your process, not just the product.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="why-divider"></div>
+        <div class="why-title" id="X-w4t">Competitive Pricing</div>
+        <div class="why-desc" id="X-w4d">Direct supplier relationships across five continents mean we secure the best prices — savings passed straight to you.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+        <div class="why-divider"></div>
+        <div class="why-title" id="X-w5t">Manufacturing Expertise</div>
+        <div class="why-desc" id="X-w5d">Insight into the industries we serve, not just the chemistry — we speak your factory's language.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="why-divider"></div>
+        <div class="why-title" id="X-w6t">Long-Term Partnerships</div>
+        <div class="why-desc" id="X-w6d">We invest in client relationships built on trust, consistency, and shared success — not just transactions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats-section">
+  <div class="stats-inner">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-val gradient-text" id="sv1">0+</div>
+        <div class="stat-lbl" id="X-sb1">Years of Industrial Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val gradient-text" id="sv2">0</div>
+        <div class="stat-lbl" id="X-sb2">Core Industries Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val gradient-text" id="sv3">0+</div>
+        <div class="stat-lbl" id="X-sb3">Global Supply Partners</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val gradient-text" id="sv4">0+</div>
+        <div class="stat-lbl" id="X-sb4">Trusted Clients</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="contact-label" id="X-ctl">Get in Touch</div>
+        <h2 id="X-cth">Let's engineer your next supply solution.</h2>
+        <p class="contact-sub" id="X-ctb">Tell us about your manufacturing needs — our technical team responds within one business day.</p>
+        <div class="contact-items">
+          <div class="ci">
+            <div class="ci-icon-wrap"><svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
+            <div><div class="ci-lbl" id="X-ciph">Phone</div><div class="ci-val">+20 100 000 0000</div></div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon-wrap"><svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+            <div><div class="ci-lbl" id="X-ciem">Email</div><div class="ci-val">info@samamisr.com</div></div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+            <div><div class="ci-lbl" id="X-ciloc">Location</div><div class="ci-val">Cairo, Egypt</div></div>
+          </div>
+        </div>
+        <a href="https://wa.me/201000000000" target="_blank" rel="noreferrer" class="wa-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          <span id="X-wa">Chat on WhatsApp</span>
+        </a>
+        <div class="map-wrap">
+          <iframe title="Cairo Map" src="https://www.openstreetmap.org/export/embed.html?bbox=31.20%2C30.02%2C31.30%2C30.08&layer=mapnik" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-grid-2">
+          <div class="fg"><label id="X-fn">Full Name</label><input type="text" placeholder="Ahmed Hassan"/></div>
+          <div class="fg"><label id="X-co">Company</label><input type="text" placeholder="Your company"/></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="fg"><label id="X-em">Email</label><input type="email" placeholder="you@company.com"/></div>
+          <div class="fg"><label id="X-ph">Phone</label><input type="tel" placeholder="+20 (0) xxx xxx xxxx"/></div>
+        </div>
+        <div class="fg">
+          <label id="X-ind">Industry</label>
+          <select>
+            <option id="X-sp">Ceramics</option>
+            <option>Textiles</option>
+            <option>Glass</option>
+            <option>Detergents</option>
+            <option>Sanitary Ware</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label id="X-mg">Message</label><textarea rows="4" placeholder="Tell us about your requirements…"></textarea></div>
+        <button class="form-submit" onclick="this.innerHTML='✓ Thank you — we\'ll be in touch'">
+          <span id="X-sb">Send Inquiry</span>
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <img src="molecule-icon.png" alt="Sama Misr"/>
+        <div class="footer-name" id="X-fl">Sama Misr</div>
+        <p class="footer-desc" id="X-fd">Industrial chemicals and raw material solutions for ceramics, textiles, glass, detergents, and sanitary ware manufacturers.</p>
+        <div class="footer-soc">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title" id="X-fc1">Company</div>
+        <ul>
+          <li><a href="#about" id="X-ff1">About</a></li>
+          <li><a href="#why" id="X-ff2">Why Us</a></li>
+          <li><a href="#contact" id="X-ff3">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title" id="X-fc2">Industries</div>
+        <ul>
+          <li id="X-fi1">Ceramics</li>
+          <li id="X-fi2">Textiles</li>
+          <li id="X-fi3">Glass</li>
+          <li id="X-fi4">Detergents</li>
+          <li id="X-fi5">Sanitary Ware</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title" id="X-fc3">Contact</div>
+        <ul>
+          <li>Cairo, Egypt</li>
+          <li>info@samamisr.com</li>
+          <li>+20 100 000 0000</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" id="X-fcp">© 2025 Sama Misr. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#" id="X-fp">Privacy</a>
+        <a href="#" id="X-ft">Terms</a>
+        <a href="#" id="X-fq">Quality Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// NAV scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20)
+},{passive:true})
+
+// Mobile menu
+let mobOpen=false
+function toggleMob(){
+  mobOpen=!mobOpen
+  document.getElementById('mob-menu').style.display=mobOpen?'block':'none'
+  document.getElementById('mb1').style.transform=mobOpen?'translateY(6px) rotate(45deg)':''
+  document.getElementById('mb2').style.opacity=mobOpen?'0':'1'
+  document.getElementById('mb3').style.transform=mobOpen?'translateY(-6px) rotate(-45deg)':''
+}
+function closeMob(){mobOpen=false;document.getElementById('mob-menu').style.display='none';document.getElementById('mb1').style.transform='';document.getElementById('mb2').style.opacity='1';document.getElementById('mb3').style.transform=''}
+
+// Lang popup
+function toggleLang(){document.getElementById('lang-popup').classList.toggle('open')}
+document.addEventListener('click',e=>{
+  const btn=document.getElementById('globe-btn'),popup=document.getElementById('lang-popup')
+  if(!btn.contains(e.target)&&!popup.contains(e.target))popup.classList.remove('open')
+})
+
+// Stats counter
+const targets=[{id:'sv1',val:20,suf:'+'},{id:'sv2',val:5,suf:''},{id:'sv3',val:30,suf:'+'},{id:'sv4',val:250,suf:'+'}]
+let counted=false
+const statsEl=document.getElementById('stats-section')
+const io=new IntersectionObserver(([e])=>{
+  if(e.isIntersecting&&!counted){
+    counted=true
+    targets.forEach(t=>{
+      const el=document.getElementById(t.id)
+      const dur=1800,t0=performance.now()
+      const tick=now=>{
+        const p=Math.min(1,(now-t0)/dur)
+        const eased=1-Math.pow(1-p,3)
+        el.textContent=Math.floor(eased*t.val)+t.suf
+        if(p<1)requestAnimationFrame(tick)
+      }
+      requestAnimationFrame(tick)
+    })
+  }
+},{threshold:.3})
+if(statsEl)io.observe(statsEl)
+
+// Language data
+const D={
+en:{
+'X-ln':'Sama Misr','X-na':'About','X-ni':'Industries','X-ns':'Solutions','X-nw':'Why Us','X-nct':'Contact','X-nc':'Request a Quote','X-mna':'About','X-mni':'Industries','X-mns':'Solutions','X-mnw':'Why Us','X-mnct':'Contact','X-mnc':'Request a Quote',
+'X-hbadge':'Industrial Chemical Solutions',
+'X-h1':'Powering Modern Manufacturing Through Trusted Chemical Solutions',
+'X-hsub':'Sama Misr supplies high-quality industrial raw materials and specialty chemicals tailored for ceramics, glass, detergents, and sanitary ware industries.',
+'X-hc1':'Explore Solutions','X-hc2':'Contact Us',
+'X-hs1':'Quality Standards','X-hs2':'Industries Served','X-hs3':'Supply Network','X-hs4':'Technical Support',
+'X-abt':'About Sama Misr','X-abh':'Engineered partnerships for the <span style="color:var(--brand-bright)">industries that build the world.</span>',
+'X-ab1':'Sama Misr is an industrial chemicals partner connecting global manufacturers of raw materials with the factories that depend on them. We operate where engineering precision meets dependable sourcing — supporting our clients with consistent quality, transparent relationships, and long-term trust.',
+'X-ab2':'We specialise in identifying, qualifying, and sourcing chemical raw materials that meet the exacting standards of ceramics, tiles, sanitaryware, detergent, and glass manufacturers across Egypt.',
+'X-asl':'Established Trust','X-asv':'Decades','X-ass':'of supplying critical industrial inputs across MENA.',
+'X-p1t':'Reliability','X-p1d':'Consistent sourcing backed by long-standing partnerships with certified global producers.',
+'X-p2t':'Technical Expertise','X-p2d':'Engineering knowledge across formulations, processes, and end-use industry requirements.',
+'X-p3t':'Quality Assurance','X-p3d':'Rigorous QC at every stage — from sourcing to delivery, aligned with global standards.',
+'X-p4t':'Local Understanding','X-p4d':'Deep knowledge of MENA manufacturing, paired with international sourcing reach.',
+'X-it':'Industries Served','X-ih':'Built for the manufacturers shaping modern industry.',
+'X-isub':'From foundational raw materials to high-performance specialty chemistry — tailored for five core verticals.',
+'X-i1n':'Ceramics','X-i1d':'Raw materials and additives for tiles, tableware, and technical ceramics.','X-i1l':'Learn more →',
+'X-i2n':'Textiles','X-i2d':'Specialty chemicals for dyeing, finishing, and fiber processing.','X-i2l':'Learn more →',
+'X-i3n':'Glass','X-i3d':'High-purity inputs for flat, container, and specialty glass production.','X-i3l':'Learn more →',
+'X-i4n':'Detergents','X-i4d':'Active ingredients and builders for household and industrial cleaners.','X-i4l':'Learn more →',
+'X-i5n':'Sanitary Ware','X-i5d':'Glaze components and process chemicals for sanitary ware manufacturing.','X-i5l':'Learn more →',
+'X-svl':'Solutions & Products','X-svh':'A complete portfolio for industrial-scale manufacturing.',
+'X-svb':'We combine deep technical knowledge with global sourcing to deliver the right chemistry, on time, at scale.',
+'X-sv1t':'Industrial Raw Materials','X-sv1d':'Bulk inorganic and organic raw materials sourced from accredited global producers.','X-sv1l1':'Mineral feedstocks','X-sv1l2':'Solvents & acids','X-sv1l3':'Polymer precursors',
+'X-sv2t':'Specialty Chemicals','X-sv2d':'High-performance formulations engineered for demanding industrial processes.','X-sv2l1':'Surfactants','X-sv2l2':'Pigments & dispersions','X-sv2l3':'Functional additives',
+'X-sv3t':'Manufacturing Additives','X-sv3d':'Process aids that improve yield, consistency, and end-product quality.','X-sv3l1':'Binders & plasticizers','X-sv3l2':'Defoamers','X-sv3l3':'Performance modifiers',
+'X-sv4t':'Bespoke Sourcing','X-sv4d':'Can\'t find what you need? Share your spec and we\'ll identify the right global supplier.','X-sv4l1':'Supplier qualification','X-sv4l2':'Custom grades & specs','X-sv4l3':'Technical data review',
+'X-wyl':'Why Sama Misr','X-wyh':'Six reasons leading manufacturers choose us.',
+'X-w1t':'Reliable Sourcing','X-w1d':'Vetted global partners and transparent supply chains — you always know where your materials come from.',
+'X-w2t':'Consistent Quality','X-w2d':'Specification-grade products, batch after batch — every order verified against its certificate of analysis.',
+'X-w3t':'Technical Support','X-w3d':'Expert guidance on formulations, grades, and specifications — we understand your process, not just the product.',
+'X-w4t':'Competitive Pricing','X-w4d':'Direct supplier relationships across five continents mean we secure the best prices — savings passed straight to you.',
+'X-w5t':'Manufacturing Expertise','X-w5d':'Insight into the industries we serve, not just the chemistry — we speak your factory\'s language.',
+'X-w6t':'Long-Term Partnerships','X-w6d':'We invest in client relationships built on trust, consistency, and shared success — not just transactions.',
+'X-sb1':'Years of Industrial Experience','X-sb2':'Core Industries Served','X-sb3':'Global Supply Partners','X-sb4':'Trusted Clients',
+'X-ctl':'Get in Touch','X-cth':'Let\'s engineer your next supply solution.',
+'X-ctb':'Tell us about your manufacturing needs — our technical team responds within one business day.',
+'X-ciph':'Phone','X-ciem':'Email','X-ciloc':'Location','X-wa':'Chat on WhatsApp',
+'X-fn':'Full Name','X-co':'Company','X-em':'Email','X-ph':'Phone','X-ind':'Industry','X-sp':'Ceramics','X-mg':'Message','X-sb':'Send Inquiry',
+'X-fl':'Sama Misr','X-fd':'Industrial chemicals and raw material solutions for ceramics, textiles, glass, detergents, and sanitary ware manufacturers.',
+'X-fc1':'Company','X-ff1':'About','X-ff2':'Why Us','X-ff3':'Contact',
+'X-fc2':'Industries','X-fi1':'Ceramics','X-fi2':'Textiles','X-fi3':'Glass','X-fi4':'Detergents','X-fi5':'Sanitary Ware',
+'X-fc3':'Contact',
+'X-fcp':'© 2025 Sama Misr. All rights reserved.','X-fp':'Privacy','X-ft':'Terms','X-fq':'Quality Policy'
+},
+ar:{
+'X-ln':'سما مصر','X-na':'عن الشركة','X-ni':'القطاعات','X-ns':'الحلول','X-nw':'لماذا نحن','X-nct':'تواصل','X-nc':'اطلب عرض سعر','X-mna':'عن الشركة','X-mni':'القطاعات','X-mns':'الحلول','X-mnw':'لماذا نحن','X-mnct':'تواصل','X-mnc':'اطلب عرض سعر',
+'X-hbadge':'حلول كيميائية صناعية',
+'X-h1':'ندعم التصنيع الحديث من خلال حلول كيميائية موثوقة',
+'X-hsub':'تُوفّر سما مصر مواد خام صناعية عالية الجودة ومواد كيميائية متخصصة للسيراميك والزجاج والمنظفات والأدوات الصحية.',
+'X-hc1':'استكشف الحلول','X-hc2':'تواصل معنا',
+'X-hs1':'معايير الجودة','X-hs2':'قطاعات تحت الخدمة','X-hs3':'شبكة توريد','X-hs4':'دعم تقني',
+'X-abt':'عن سما مصر','X-abh':'شراكات مُهندَسة لـ<span style="color:var(--brand-bright)">الصناعات التي تبني العالم.</span>',
+'X-ab1':'سما مصر شريك في المواد الكيميائية الصناعية يربط المصنّعين العالميين للمواد الخام بالمصانع التي تعتمد عليها. نعمل حيث تلتقي الدقة الهندسية بالتوريد الموثوق — ندعم عملاءنا بجودة ثابتة وعلاقات شفافة وثقة طويلة الأمد.',
+'X-ab2':'نتخصص في تحديد المواد الكيميائية الخام وتأهيلها وتوريدها بما يلبي المعايير الدقيقة لمصنّعي السيراميك والبلاط والأدوات الصحية والمنظفات والزجاج في مصر.',
+'X-asl':'ثقة راسخة','X-asv':'عقود','X-ass':'من توريد المدخلات الصناعية الحيوية في منطقة الشرق الأوسط.',
+'X-p1t':'الموثوقية','X-p1d':'توريد ثابت مدعوم بشراكات طويلة الأمد مع منتجين معتمدين على مستوى العالم.',
+'X-p2t':'الخبرة التقنية','X-p2d':'معرفة هندسية بالتركيبات والعمليات ومتطلبات الصناعات النهائية.',
+'X-p3t':'ضمان الجودة','X-p3d':'فحوصات جودة صارمة في كل مرحلة من مراحل التوريد والتسليم وفق المعايير العالمية.',
+'X-p4t':'الفهم المحلي','X-p4d':'معرفة عميقة بمشهد التصنيع في منطقة الشرق الأوسط مقترنة بوصول عالمي للموردين.',
+'X-it':'القطاعات المخدومة','X-ih':'مُصمَّم للمصنّعين الذين يشكّلون صناعة حديثة.',
+'X-isub':'من المواد الخام الأساسية إلى الكيمياء المتخصصة عالية الأداء — مُصمَّم لخمسة قطاعات رئيسية.',
+'X-i1n':'السيراميك','X-i1d':'مواد خام وإضافات للبلاط والأواني ومنتجات السيراميك التقني.','X-i1l':'اعرف المزيد →',
+'X-i2n':'المنسوجات','X-i2d':'مواد كيميائية متخصصة للصباغة والتشطيب ومعالجة الألياف.','X-i2l':'اعرف المزيد →',
+'X-i3n':'الزجاج','X-i3d':'مدخلات عالية النقاء لإنتاج الزجاج المسطح وزجاج الحاويات والزجاج التقني.','X-i3l':'اعرف المزيد →',
+'X-i4n':'المنظفات','X-i4d':'مكونات نشطة ومباني للمنظفات المنزلية والصناعية.','X-i4l':'اعرف المزيد →',
+'X-i5n':'الأدوات الصحية','X-i5d':'مكونات الطلاء والمواد الكيميائية اللازمة لتصنيع الأدوات الصحية.','X-i5l':'اعرف المزيد →',
+'X-svl':'الحلول والمنتجات','X-svh':'محفظة متكاملة للتصنيع على نطاق صناعي.',
+'X-svb':'نجمع بين المعرفة التقنية العميقة والتوريد العالمي لتقديم الكيمياء المناسبة في الوقت المناسب وبالحجم المطلوب.',
+'X-sv1t':'المواد الخام الصناعية','X-sv1d':'مواد خام غير عضوية وعضوية بالجملة من منتجين معتمدين عالمياً.','X-sv1l1':'المواد المعدنية الخام','X-sv1l2':'المذيبات والأحماض','X-sv1l3':'سلائف البوليمر',
+'X-sv2t':'المواد الكيميائية المتخصصة','X-sv2d':'تركيبات عالية الأداء مُهندَسة للعمليات الصناعية المتطلبة.','X-sv2l1':'مواد فعّالة سطحياً','X-sv2l2':'أصباغ ومشتتات','X-sv2l3':'مضافات وظيفية',
+'X-sv3t':'مضافات التصنيع','X-sv3d':'مساعدات العمليات التي تحسن الإنتاجية والاتساق وجودة المنتج النهائي.','X-sv3l1':'رابطات وملدنات','X-sv3l2':'مواد مزيلة للرغوة','X-sv3l3':'معدلات الأداء',
+'X-sv4t':'التوريد المخصص','X-sv4d':'لا تجد ما تحتاجه؟ شاركنا مواصفاتك وسنحدد المورد العالمي المناسب.','X-sv4l1':'تأهيل الموردين','X-sv4l2':'درجات ومواصفات مخصصة','X-sv4l3':'مراجعة البيانات التقنية',
+'X-wyl':'لماذا سما مصر','X-wyh':'ستة أسباب تجعل المصنّعين الرائدين يختارونا.',
+'X-w1t':'توريد موثوق','X-w1d':'شركاء عالميون معتمدون وسلاسل توريد شفافة — تعرف دائماً من أين تأتي موادك.',
+'X-w2t':'جودة ثابتة','X-w2d':'منتجات بمواصفات دقيقة دُفعة بعد دُفعة — كل طلب يُتحقق منه مقارنةً بشهادة التحليل.',
+'X-w3t':'الدعم التقني','X-w3d':'إرشاد متخصص بشأن التركيبات والدرجات والمواصفات — نفهم عمليتك، ليس المنتج فقط.',
+'X-w4t':'أسعار تنافسية','X-w4d':'علاقاتنا المباشرة مع الموردين في خمس قارات تمكّننا من تأمين أفضل الأسعار تصل إليك مباشرة.',
+'X-w5t':'خبرة تصنيعية','X-w5d':'معرفة بالقطاعات التي نخدمها لا بالكيمياء فحسب — نتحدث لغة مصنعك.',
+'X-w6t':'شراكات طويلة الأمد','X-w6d':'نستثمر في علاقات عملاء مبنية على الثقة والاتساق والنجاح المشترك لا مجرد معاملات آنية.',
+'X-sb1':'سنوات الخبرة الصناعية','X-sb2':'قطاعات رئيسية تحت الخدمة','X-sb3':'شريك توريد عالمي','X-sb4':'عميل موثوق',
+'X-ctl':'تواصل معنا','X-cth':'دعنا نُهندس حل التوريد التالي لك.',
+'X-ctb':'أخبرنا عن احتياجاتك التصنيعية — يرد فريقنا التقني خلال يوم عمل واحد.',
+'X-ciph':'الهاتف','X-ciem':'البريد الإلكتروني','X-ciloc':'الموقع','X-wa':'تحدث معنا على واتساب',
+'X-fn':'الاسم الكامل','X-co':'الشركة','X-em':'البريد الإلكتروني','X-ph':'الهاتف','X-ind':'القطاع الصناعي','X-sp':'السيراميك','X-mg':'رسالتك','X-sb':'إرسال الاستفسار',
+'X-fl':'سما مصر','X-fd':'حلول كيميائية ومواد خام صناعية للسيراميك والمنسوجات والزجاج والمنظفات والأدوات الصحية.',
+'X-fc1':'الشركة','X-ff1':'عن الشركة','X-ff2':'لماذا نحن','X-ff3':'تواصل معنا',
+'X-fc2':'القطاعات','X-fi1':'السيراميك','X-fi2':'المنسوجات','X-fi3':'الزجاج','X-fi4':'المنظفات','X-fi5':'الأدوات الصحية',
+'X-fc3':'تواصل معنا',
+'X-fcp':'© ٢٠٢٥ سما مصر. جميع الحقوق محفوظة.','X-fp':'الخصوصية','X-ft':'الشروط','X-fq':'سياسة الجودة'
+}};
+
+function sL(l){
+  document.getElementById('opt-en').classList.toggle('active',l==='en')
+  document.getElementById('opt-ar').classList.toggle('active',l==='ar')
+  document.body.classList.toggle('ar',l==='ar')
+  document.documentElement.lang=l
+  document.getElementById('lang-popup').classList.remove('open')
+  const d=D[l]
+  for(const[k,v]of Object.entries(d)){const e=document.getElementById(k);if(e)e.innerHTML=v}
+}
+</script>
+</body>
+</html>
