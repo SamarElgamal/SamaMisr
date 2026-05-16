@@ -612,32 +612,35 @@ footer::before{content:'';position:absolute;inset:0;background-image:linear-grad
           <iframe title="Cairo Map" src="https://www.openstreetmap.org/export/embed.html?bbox=31.20%2C30.02%2C31.30%2C30.08&layer=mapnik" loading="lazy"></iframe>
         </div>
       </div>
-      <div class="contact-form">
-        <div class="form-grid-2">
-          <div class="fg"><label id="X-fn">Full Name</label><input type="text" placeholder="Ahmed Hassan"/></div>
-          <div class="fg"><label id="X-co">Company</label><input type="text" placeholder="Your company"/></div>
-        </div>
-        <div class="form-grid-2">
-          <div class="fg"><label id="X-em">Email</label><input type="email" placeholder="you@company.com"/></div>
-          <div class="fg"><label id="X-ph">Phone</label><input type="tel" placeholder="+20 (0) xxx xxx xxxx"/></div>
-        </div>
-        <div class="fg">
-          <label id="X-ind">Industry</label>
-          <select>
-            <option id="X-sp">Ceramics</option>
-            <option>Textiles</option>
-            <option>Glass</option>
-            <option>Detergents</option>
-            <option>Sanitary Ware</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="fg"><label id="X-mg">Message</label><textarea rows="4" placeholder="Tell us about your requirements…"></textarea></div>
-        <button class="form-submit" onclick="this.innerHTML='✓ Thank you — we\'ll be in touch'">
-          <span id="X-sb">Send Inquiry</span>
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-      </div>
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="efdc677d-a3ab-4bff-af45-809dc70faed6"/>
+  <input type="hidden" name="subject" value="New Enquiry — Sama Misr"/>
+  <input type="hidden" name="redirect" value="false"/>
+  <div class="form-grid-2">
+    <div class="fg"><label id="X-fn">Full Name</label><input type="text" name="name" placeholder="Ahmed Hassan" required/></div>
+    <div class="fg"><label id="X-co">Company</label><input type="text" name="company" placeholder="Your company"/></div>
+  </div>
+  <div class="form-grid-2">
+    <div class="fg"><label id="X-em">Email</label><input type="email" name="email" placeholder="you@company.com" required/></div>
+    <div class="fg"><label id="X-ph">Phone</label><input type="tel" name="phone" placeholder="+20 (0) xxx xxx xxxx"/></div>
+  </div>
+  <div class="fg">
+    <label id="X-ind">Industry</label>
+    <select name="industry">
+      <option id="X-sp">Ceramics</option>
+      <option>Textiles</option>
+      <option>Glass</option>
+      <option>Detergents</option>
+      <option>Sanitary Ware</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="fg"><label id="X-mg">Message</label><textarea name="message" rows="4" placeholder="Tell us about your requirements…"></textarea></div>
+  <button type="submit" class="form-submit" id="X-sb">
+    <span>Send Inquiry</span>
+    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </button>
+</form>
     </div>
   </div>
 </section>
