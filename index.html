@@ -24,7 +24,7 @@ body{font-family:'Manrope',sans-serif;background:#fff;color:var(--navy-deep);-we
 body.ar{direction:rtl;font-family:'Cairo',sans-serif}
 body.ar .hero-badge{font-family:'Cairo',sans-serif !important;letter-spacing:0}
 body.ar .hero h1{font-size:clamp(2.5rem,4.5vw,4rem);white-space:normal;overflow:visible;padding-bottom:1rem;line-height:1.4}
-body.ar .hero-sub{font-size:1.5rem;max-width:900px}
+body.ar .hero-sub{font-size:1.5rem;max-width:700px}
 body.ar .nav-logo-text{font-size:1.8rem}
 body.ar .nav-links a{font-size:1rem}
 body.ar .nav-cta{font-size:1rem}
@@ -859,9 +859,14 @@ function sL(l){
   document.body.classList.toggle('ar',l==='ar')
   document.documentElement.lang=l
   document.getElementById('lang-popup').classList.remove('open')
+  localStorage.setItem('lang',l)
   const d=D[l]
   for(const[k,v]of Object.entries(d)){const e=document.getElementById(k);if(e)e.innerHTML=v}
 }
+
+// Load saved language on page load
+const savedLang=localStorage.getItem('lang')
+if(savedLang&&savedLang==='ar')sL('ar')
 </script>
   <script>
 if(window.history.replaceState){
