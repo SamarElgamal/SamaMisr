@@ -39,11 +39,14 @@ body.ar .hero-btns{margin-bottom:5rem}
 body.ar .nav-links{flex-direction:row-reverse}
 body.ar .nav-right{flex-direction:row-reverse}
 body.ar .hero-meta{direction:rtl}
-body.ar .about-grid{display:grid;grid-template-columns:1fr 1fr;direction:rtl}
+body.ar .about-grid{display:grid;grid-template-columns:1fr 1fr;direction:ltr}
+body.ar .about-grid > div:first-child{order:2}
+body.ar .about-grid > div:last-child{order:1}
 body.ar .about-right{text-align:right}
 body.ar .sec-label{text-align:right}
-body.ar .sec-h2{text-align:right}
-body.ar .about-text{text-align:right}
+body.ar .hero-badge{font-family:'Cairo',sans-serif !important;letter-spacing:0;word-spacing:.3rem;margin-bottom:2.5rem;font-size:1rem}
+body.ar .sec-h2{text-align:right;word-spacing:normal;letter-spacing:normal}
+body.ar .about-text{text-align:right;word-spacing:normal;letter-spacing:normal}
 body.ar .pillars{direction:rtl}
 body.ar .ind-grid{direction:rtl}
 body.ar .sol-grid{direction:rtl}
