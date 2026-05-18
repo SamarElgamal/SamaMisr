@@ -655,12 +655,12 @@ footer::before{content:'';position:absolute;inset:0;background-image:linear-grad
   <input type="hidden" name="redirect" value="false"/>
   <input type="hidden" name="after_submit" value="reset"/>
   <div class="form-grid-2">
-    <div class="fg"><label id="X-fn">Full Name</label><input type="text" name="name" placeholder="Ahmed Hassan" required/></div>
-    <div class="fg"><label id="X-co">Company</label><input type="text" name="company" placeholder="Your company"/></div>
+    <div class="fg"><label id="X-fn">Full Name</label><input type="text" name="name" id="X-ph-name" placeholder="Ahmed Hassan" required/></div>
+    <div class="fg"><label id="X-co">Company</label><input type="text" name="company" id="X-ph-company" placeholder="Your company"/></div>
   </div>
   <div class="form-grid-2">
-    <div class="fg"><label id="X-em">Email</label><input type="email" name="email" placeholder="you@company.com" required/></div>
-    <div class="fg"><label id="X-ph">Phone</label><input type="tel" name="phone" placeholder="+20 (0) xxx xxx xxxx"/></div>
+    <div class="fg"><label id="X-em">Email</label><input type="email" name="email" id="X-ph-email" placeholder="you@company.com" required/></div>
+    <div class="fg"><label id="X-ph">Phone</label><input type="tel" name="phone" id="X-ph-phone" placeholder="+20 (0) xxx xxx xxxx"/></div>
   </div>
   <div class="fg">
     <label id="X-ind">Industry</label>
@@ -882,6 +882,10 @@ ar:{
 'X-fc1':'الشركة','X-ff1':'عن الشركة','X-ff2':'لماذا نحن','X-ff3':'تواصل معنا',
 'X-fc2':'القطاعات','X-fi1':'السيراميك','X-fi2':'الأدوات الصحية','X-fi3':'الزجاج','X-fi4':'المنظفات','X-fi5':'المنسوجات',
 'X-fc3':'تواصل معنا',
+'X-ph-name':'أحمد حسن',
+'X-ph-company':'اسم شركتك',
+'X-ph-email':'you@company.com',
+'X-ph-phone':'+20 (0) xxx xxx xxxx',
 'X-fcp':'© ٢٠٢٦ سما مصر. جميع الحقوق محفوظة.','X-fp':'الخصوصية','X-ft':'الشروط','X-fq':'سياسة الجودة'
 }};
 
@@ -893,7 +897,13 @@ function sL(l){
   document.getElementById('lang-popup').classList.remove('open')
   localStorage.setItem('lang',l)
   const d=D[l]
-  for(const[k,v]of Object.entries(d)){const e=document.getElementById(k);if(e)e.innerHTML=v}
+  for(const[k,v]of Object.entries(d)){
+  const e=document.getElementById(k);
+  if(e){
+    if(e.placeholder!==undefined&&k.startsWith('X-ph-'))e.placeholder=v;
+    else e.innerHTML=v;
+  }
+}
 }
 
 // Load saved language on page load
